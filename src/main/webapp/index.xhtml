@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//PT" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>CobreMais++++</title>
+    </h:head>
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <h:body>
+        <img src="img/Logo DHRConsultoria.jpg" title="DHRConsultoria"/>
+             
+        <div class="box" >       
+        
+             <h2>Login</h2>
+        <h:form>
+            <div class="input">
+            
+                <h:inputText value="#{usuarioControler.usuario}"/>
+            <label>Usuario</label>
+            </div>
+            
+            <div class="input">
+            
+                <h:inputSecret value="#{usuarioControler.senha}"/>
+            <label>Senha</label>
+            </div>
+            <h:commandButton value="Enviar" action="#{usuarioControler.logar()}"/>
+        </h:form>
+             </div>
+    </h:body>
+</html>
+

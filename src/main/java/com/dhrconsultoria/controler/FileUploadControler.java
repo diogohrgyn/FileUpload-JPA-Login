@@ -21,10 +21,10 @@ import org.primefaces.model.file.UploadedFile;
  *
  * @author administrador
  */
-public class FileUploadView {
+public class FileUploadControler {
 
     /**
-     * Creates a new instance of FileUploadView
+     * Creates a new instance of FileUploadControler
      */
     private UploadedFile file;
     private Sheet sheet;
@@ -55,9 +55,9 @@ public class FileUploadView {
         try {
             workbook = Workbook.getWorkbook(new File(arquivo));
         } catch (IOException ex) {
-            Logger.getLogger(FileUploadView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileUploadControler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (BiffException ex) {
-            Logger.getLogger(FileUploadView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileUploadControler.class.getName()).log(Level.SEVERE, null, ex);
         }
         Sheet sheet = workbook.getSheet(0);
         int linhas = sheet.getRows();

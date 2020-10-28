@@ -22,7 +22,25 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String usuario;
+    private String senha;
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
     public Long getId() {
         return id;
     }
@@ -53,7 +71,9 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.dhrconsultoria.modelo.Usuario[ id=" + id + " ]";
+        return "Usuario{" + "id=" + id + ", usuario=" + usuario + ", senha=" + senha + '}';
     }
+
+    
     
 }

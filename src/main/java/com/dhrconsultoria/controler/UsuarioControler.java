@@ -6,8 +6,12 @@
 package com.dhrconsultoria.controler;
 
 import com.dhrconsultoria.modelo.Usuario;
+import com.dhrconsultoria.util.JpaUtil;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -18,7 +22,15 @@ public class UsuarioControler {
     private Usuario entity;
     private String usuario;
     private String senha;
+    private List<Usuario> lista;
 
+    public List<Usuario> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<Usuario> lista) {
+        this.lista = lista;
+    }
     public String getUsuario() {
         return usuario;
     }
@@ -40,14 +52,21 @@ public class UsuarioControler {
     }
 
     public String logar() {
-        entity = new Usuario();
-        if (true) {
-            return "logado";
-        } else {
+        EntityManager em = JpaUtil.getEntityManager();
+        Query q = em.createQuery("select a from Usuario a", Usuario.class);
+        lista = q.getResultList();
+        for (Usuario usuario1 : lista) {
+            if (usuario1.getUsuario().equals(this.usuario)) {
+                if (usuario1.getSenha().equals(this.senha)) {
+                    return "logado";
+                }
+            }
+        }
+        
             FacesMessage message = new FacesMessage("Erro ao Logar", "Usuario ou senha invalido, Verifique com o Administrador");
             FacesContext.getCurrentInstance().addMessage(null, message);
-            return "index";
-        }
+            return null;
+        
         
 
     }

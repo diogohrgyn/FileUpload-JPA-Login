@@ -8,22 +8,19 @@
         <title>Cobrar É Facil</title>
     </h:head>
     <h:body>
-        <p:growl id="messages" showDetail="true" />
- 
-
-
-<h:form>  
+        <h:form>  
     <p:growl id="messages"/>
  
     <p:menubar>
         <p:submenu label="Arquivos" icon="pi pi-file">
-            <p:menuitem value="Importação" outcome="importar" />
+            <p:menuitem value="Importação" outcome="importar" icon="pi pi-upload"/>
             <p:menuitem value="usuario" url="#" />  
             <p:menuitem value="Ocorrencias" url="#" />
             <p:menuitem value="Relatorios" url="#" />
             <p:menuitem value="Distribuição" url="#" />
             <p:menuitem value="Emissão" url="#" />
             <p:menuitem value="Carteiras" url="#" />
+            <p:menuitem value="Termos" url="#" />
             <p:submenu label="Cadastro de Meta" icon="pi pi-briefcase" >
                 <p:menuitem value="honorarios" url="#" />
                 <p:menuitem value="Recebimentos" url="#" />
@@ -35,28 +32,25 @@
             <p:menuitem value="Contratante" url="#" icon="pi pi-angle-double-right" />
             <p:menuitem value="Relatorio" url="#" icon="pi pi-angle-double-right" />
         </p:submenu>
- 
-        <p:submenu label="Help" icon="pi pi-question">
-            <p:menuitem value="Contents" url="#" />
-            <p:submenu label="Search" icon="pi pi-search">
-                <p:submenu label="Text">
-                    <p:menuitem value="Workspace" url="#" />
-                </p:submenu>
-                <p:menuitem value="File" url="#" />
+
+        <p:submenu label="Gerenciar campanhas" icon="pi pi-sliders-v">
+            <p:menuitem value="Operador" url="#" />
+            <p:menuitem value="Carteira" url="#" />
+            </p:submenu>
+         
+        <p:submenu label="Envios" icon="pi pi-cog">
+            <p:submenu label="Campanhas" icon="pi pi-refresh">
+                <p:menuitem value="E-mail" action="#{menuView.save}" icon="pi pi-envelope" update="messages"/>
+                <p:menuitem value="SMS" action="#{menuView.update}" icon="pi pi-refresh" update="messages"/>
+                <p:menuitem value="Whatsapp" action="#{menuView.update}" icon="pi pi-refresh" update="messages"/>
+            </p:submenu>
+            <p:submenu label="Manual" icon="pi pi-refresh">
+                <p:menuitem value="E-mail" action="#{menuView.save}" icon="pi pi-save" update="messages"/>
+                <p:menuitem value="SMS" action="#{menuView.update}" icon="pi pi-refresh" update="messages"/>
             </p:submenu>
         </p:submenu>
  
-        <p:submenu label="Actions" icon="pi pi-cog">
-            <p:submenu label="Ajax" icon="pi pi-refresh">
-                <p:menuitem value="Save" action="#{menuView.save}" icon="pi pi-save" update="messages"/>
-                <p:menuitem value="Update" action="#{menuView.update}" icon="pi pi-refresh" update="messages"/>
-            </p:submenu>
-            <p:submenu label="Non-Ajax" icon="pi pi-clone">
-                <p:menuitem value="Delete" action="#{menuView.delete}" icon="pi pi-times" update="messages" ajax="false"/>
-            </p:submenu>
-        </p:submenu>
- 
-        <p:menuitem value="Help" url="http://www.primefaces.org" icon="pi pi-times" />
+        <p:menuitem value="DHRConsultoria(Help)" url="https://dhrconsultoria.com.br/" icon="pi pi-times" />
  
         <f:facet name="options">
             <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Consulta"/>
@@ -64,14 +58,6 @@
         </f:facet>
     </p:menubar>
 </h:form>
-
-<h:form enctype="multipart/form-data">        
-    <p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>
-    <br />
-    <p:commandButton value="Submit" ajax="false" action="#{fileUploadView.upload()}"  />
-</h:form>
-    
-
     </h:body>
 </html>
 

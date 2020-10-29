@@ -2,7 +2,20 @@
 <persistence version="2.2" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
   <!-- Define Persistence Unit -->
   <persistence-unit name="my_persistence_unit">
-    <class>com.dhrconsultoria.modelo.Usuario</class>
+    <class>com.dhrconsultoria.Modelo.Enviowhatsapp</class>
+    <class>com.dhrconsultoria.Modelo.Status</class>
+    <class>com.dhrconsultoria.Modelo.Telefone</class>
+    <class>com.dhrconsultoria.Modelo.Gestaoinadimplencia</class>
+    <class>com.dhrconsultoria.Modelo.Pessoa</class>
+    <class>com.dhrconsultoria.Modelo.Usuario</class>
+    <class>com.dhrconsultoria.Modelo.Enviosms</class>
+    <class>com.dhrconsultoria.Modelo.Contratante</class>
+    <class>com.dhrconsultoria.Modelo.Emissao</class>
+    <class>com.dhrconsultoria.Modelo.Email</class>
+    <class>com.dhrconsultoria.Modelo.Carteira</class>
+    <class>com.dhrconsultoria.Modelo.Distribuicao</class>
+    <class>com.dhrconsultoria.Modelo.Endereco</class>
+    <class>com.dhrconsultoria.Modelo.Tipotelefone</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.0.206:5432/magalhaes"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

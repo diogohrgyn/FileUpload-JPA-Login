@@ -38,12 +38,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pessoa.findBySexo", query = "SELECT p FROM Pessoa p WHERE p.sexo = :sexo")})
 public class Pessoa implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "id")
-    private Long id;
     @Size(max = 255)
     @Column(name = "cpf")
     private String cpf;
@@ -62,6 +56,13 @@ public class Pessoa implements Serializable {
     @Size(max = 255)
     @Column(name = "sexo")
     private String sexo;
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "id")
+    private Long id;
     @OneToMany(mappedBy = "pessoaId")
     private List<Telefone> telefoneList;
     @OneToMany(mappedBy = "pessoaId")
@@ -88,53 +89,6 @@ public class Pessoa implements Serializable {
         this.id = id;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getDatanasc() {
-        return datanasc;
-    }
-
-    public void setDatanasc(String datanasc) {
-        this.datanasc = datanasc;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNomemae() {
-        return nomemae;
-    }
-
-    public void setNomemae(String nomemae) {
-        this.nomemae = nomemae;
-    }
-
-    public String getNomepai() {
-        return nomepai;
-    }
-
-    public void setNomepai(String nomepai) {
-        this.nomepai = nomepai;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
 
     @XmlTransient
     public List<Telefone> getTelefoneList() {
@@ -204,6 +158,54 @@ public class Pessoa implements Serializable {
     @Override
     public String toString() {
         return "com.dhrconsultoria.controler.Pessoa[ id=" + id + " ]";
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getDatanasc() {
+        return datanasc;
+    }
+
+    public void setDatanasc(String datanasc) {
+        this.datanasc = datanasc;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNomemae() {
+        return nomemae;
+    }
+
+    public void setNomemae(String nomemae) {
+        this.nomemae = nomemae;
+    }
+
+    public String getNomepai() {
+        return nomepai;
+    }
+
+    public void setNomepai(String nomepai) {
+        this.nomepai = nomepai;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
     
 }
